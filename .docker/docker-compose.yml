@@ -1,0 +1,142 @@
+name: "entrili-lrs"
+services:
+
+  nginx:
+    build:
+      context: ${CONF_PATH}/nginx
+      dockerfile: Dockerfile
+    container_name: lrs_nginx
+    depends_on:
+      php:
+        condition: service_started
+        required: true
+    extra_hosts:
+      - host.docker.internal=host-gateway
+    links:
+      - php
+    networks:
+      default:
+        aliases:
+          - lrs.entrili.local
+    ports:
+      - mode: ingress
+        target: 443
+        published: "444"
+        protocol: tcp
+      - mode: ingress
+        target: 9003
+        published: "9003"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: ${APP_PATH}/public
+        target: /var/www/lrs/public
+        bind:
+          create_host_path: true
+      - type: bind
+        source: config
+        target: /var/config
+        bind:
+          create_host_path: true
+      - type: bind
+        source: ${CONF_PATH}/nginx/conf/nginx.conf
+        target: /etc/nginx/nginx.conf
+        bind:
+          create_host_path: true
+      - type: bind
+        source: ${CONF_PATH}/nginx/conf/lrs.conf
+        target: /etc/nginx/conf.d/default.conf
+        bind:
+          create_host_path: true
+  php:
+    build:
+      context: ${CONF_PATH}/php
+      dockerfile: Dockerfile
+    container_name: lrs_php
+    depends_on:
+      mysql:
+        condition: service_started
+        restart: true
+        required: true
+    environment:
+      IDE_KEY: PHPSTORM
+      PHP_IDE_CONFIG: serverName=lrs.entrili.local
+    links:
+      - mysql
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 9004
+        published: "9004"
+        protocol: tcp
+    volumes:
+      - type: volume
+        source: cache
+        target: /var/www/lrs/var
+        volume: {}
+      - type: volume
+        source: composer
+        target: /home/www/.composer/cache
+        volume: {}
+      - type: bind
+        source: ${APP_PATH}
+        target: /var/www/lrs
+        bind:
+          create_host_path: true
+      - type: bind
+        source: ${APP_PATH}/../
+        target: /var/www/projects
+        bind:
+          create_host_path: true
+      - type: bind
+        source: config
+        target: /var/config
+        bind:
+          create_host_path: true
+      - type: bind
+        source: ${CONF_PATH}/php/php-fpm.conf
+        target: /etc/php-fpm.d/www-entrili.conf
+        bind:
+          create_host_path: true
+      - type: bind
+        source: ${CONF_PATH}/php/php.ini
+        target: /etc/php.d/99-entrili.ini
+        bind:
+          create_host_path: true
+  mysql:
+    command:
+      - --default-authentication-plugin=mysql_native_password
+    container_name: lrs_mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: null
+      MYSQL_DATABASE: entrili_lrs
+      MYSQL_ROOT_PASSWORD: root
+    image: mysql:latest
+    networks:
+      default: null
+    ports:
+      - mode: ingress
+        target: 3306
+        published: "3306"
+        protocol: tcp
+    volumes:
+      - type: bind
+        source: ${CONF_PATH}/mysql
+        target: /tmp/db
+        bind:
+          create_host_path: true
+      - type: volume
+        source: mysql
+        target: /var/lib/mysql
+        volume: {}
+networks:
+  default:
+    name: lrs_network
+volumes:
+  cache:
+    name: lrs_cache
+  composer:
+    name: lrs_composer
+  mysql:
+    name: lrs_mysql
