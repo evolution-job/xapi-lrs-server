@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea096aca9cc50428492bcbdcbb0305e3",
+    "content-hash": "6a1c1afbd9296a4b576e34c4c734ad70",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -1895,14 +1895,8 @@
             "version": "v0.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-xapi/exception.git",
+                "url": "https://github.com/evolution-job/php-xapi-exception.git",
                 "reference": "756096cfaf0503d8aa291cfac51269994eb13b1f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-xapi/exception/zipball/756096cfaf0503d8aa291cfac51269994eb13b1f",
-                "reference": "756096cfaf0503d8aa291cfac51269994eb13b1f",
-                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
@@ -1921,7 +1915,6 @@
                     "Xabbuh\\XApi\\Common\\Exception\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1939,33 +1932,23 @@
                 "exception",
                 "xAPI"
             ],
-            "support": {
-                "issues": "https://github.com/php-xapi/exception/issues",
-                "source": "https://github.com/php-xapi/exception/tree/master"
-            },
             "time": "2018-04-23T08:45:13+00:00"
         },
         {
             "name": "php-xapi/json-test-fixtures",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-xapi/json-test-fixtures.git",
-                "reference": "11d94216395c693028aa2dc61aa2c44a92109e09"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-xapi/json-test-fixtures/zipball/11d94216395c693028aa2dc61aa2c44a92109e09",
-                "reference": "11d94216395c693028aa2dc61aa2c44a92109e09",
-                "shasum": ""
+                "url": "https://github.com/evolution-job/php-xapi-json-test-fixtures.git",
+                "reference": "ca15d2020f285629c88e5b9c888c392910bcf00d"
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": "^7.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -1973,7 +1956,6 @@
                     "XApi\\Fixtures\\Json\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1986,19 +1968,15 @@
             "description": "common JSON test fixtures for Experience API related packages",
             "homepage": "https://github.com/php-xapi/json-test-fixtures",
             "keywords": [
-                "Data fixtures",
                 "Experience API",
+                "JSON",
                 "Tin Can API",
+                "data fixtures",
                 "fixtures",
-                "json",
                 "test fixtures",
                 "xAPI"
             ],
-            "support": {
-                "issues": "https://github.com/php-xapi/json-test-fixtures/issues",
-                "source": "https://github.com/php-xapi/json-test-fixtures/tree/master"
-            },
-            "time": "2016-10-09T13:12:17+00:00"
+            "time": "2019-07-26T08:13:57+00:00"
         },
         {
             "name": "php-xapi/lrs-bundle",
@@ -2249,7 +2227,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/evolution-job/php-xapi-repository-doctrine-orm.git",
-                "reference": "e084ea1186d9cc62df935b2cd7338b79c717aa3e"
+                "reference": "9af995ab735c6fabfd68c3fdcbbb9eed8a390907"
             },
             "require": {
                 "doctrine/orm": "^2.3",
@@ -2302,7 +2280,7 @@
                 "storage",
                 "xAPI"
             ],
-            "time": "2024-02-23T14:47:32+00:00"
+            "time": "2024-02-23T16:05:44+00:00"
         },
         {
             "name": "php-xapi/serializer",
@@ -2364,7 +2342,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/evolution-job/php-xapi-symfony-serializer.git",
-                "reference": "52591f4ee60dfd1599caace8199e78a71fefa475"
+                "reference": "e8be704d66d121b468e86a5898e807a96f609751"
             },
             "require": {
                 "ext-json": "*",
@@ -2418,24 +2396,18 @@
                 "serializer",
                 "xAPI"
             ],
-            "time": "2024-02-23T14:56:45+00:00"
+            "time": "2024-02-26T09:11:56+00:00"
         },
         {
             "name": "php-xapi/test-fixtures",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-xapi/test-fixtures.git",
-                "reference": "01d7fdcf76e5b993d5f4f24ac3eca5ace65f17b1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-xapi/test-fixtures/zipball/01d7fdcf76e5b993d5f4f24ac3eca5ace65f17b1",
-                "reference": "01d7fdcf76e5b993d5f4f24ac3eca5ace65f17b1",
-                "shasum": ""
+                "url": "https://github.com/evolution-job/php-xapi-test-fixtures.git",
+                "reference": "01d397ff158f4229035db6c55a5bf596548c905c"
             },
             "require": {
-                "php": ">=5.3.0",
+                "php": "^7.1",
                 "php-xapi/model": "^1.1 || ^2.0 || ^3.0",
                 "ramsey/uuid": "^2.9 || ^3.0"
             },
@@ -2445,7 +2417,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -2453,7 +2425,6 @@
                     "Xabbuh\\XApi\\DataFixtures\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2466,18 +2437,14 @@
             "description": "common test data fixtures for Experience API related packages",
             "homepage": "https://github.com/php-xapi/test-fixtures",
             "keywords": [
-                "Data fixtures",
                 "Experience API",
                 "Tin Can API",
+                "data fixtures",
                 "fixtures",
                 "test fixtures",
                 "xAPI"
             ],
-            "support": {
-                "issues": "https://github.com/php-xapi/test-fixtures/issues",
-                "source": "https://github.com/php-xapi/test-fixtures/tree/master"
-            },
-            "time": "2018-04-18T18:56:03+00:00"
+            "time": "2019-07-26T08:13:29+00:00"
         },
         {
             "name": "psr/cache",
@@ -6354,12 +6321,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "1be441484ebcaea84a884b1bd57f336955f1dec3"
+                "reference": "aafb7236bf0c11b93b24e951544bd83470b85bec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/1be441484ebcaea84a884b1bd57f336955f1dec3",
-                "reference": "1be441484ebcaea84a884b1bd57f336955f1dec3",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/aafb7236bf0c11b93b24e951544bd83470b85bec",
+                "reference": "aafb7236bf0c11b93b24e951544bd83470b85bec",
                 "shasum": ""
             },
             "conflict": {
@@ -6476,7 +6443,7 @@
                 "doctrine/mongodb-odm-bundle": "<3.0.1",
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1|>=2.8.3,<2.8.4",
                 "dolibarr/dolibarr": "<18.0.2",
-                "dompdf/dompdf": "<=2.0.4",
+                "dompdf/dompdf": "<2.0.4",
                 "doublethreedigital/guest-entries": "<3.1.2",
                 "drupal/core": ">=6,<6.38|>=7,<7.96|>=8,<10.1.8|>=10.2,<10.2.2",
                 "drupal/drupal": ">=5,<5.11|>=6,<6.38|>=7,<7.80|>=8,<8.9.16|>=9,<9.1.12|>=9.2,<9.2.4",
@@ -7086,7 +7053,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-22T22:04:03+00:00"
+            "time": "2024-02-23T16:04:25+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
