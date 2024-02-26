@@ -1,17 +1,55 @@
 {
+    "name": "entrili/lrs",
     "type": "project",
     "license": "proprietary",
+    "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/evolution-job/php-xapi-lrs-bundle.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/evolution-job/php-xapi-model.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/evolution-job/php-xapi-repository-api.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/evolution-job/php-xapi-repository-doctrine.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/evolution-job/php-xapi-repository-doctrine-orm.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/evolution-job/php-xapi-serializer.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/evolution-job/php-xapi-symfony-serializer.git"
+        }
+    ],
     "require": {
         "php": ">=7.1.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/doctrine-migrations-bundle": "^2.2",
+        "php-xapi/lrs-bundle": "^0.2",
         "symfony/console": "4.4.*",
         "symfony/dotenv": "4.4.*",
         "symfony/flex": "^1.3.1",
         "symfony/framework-bundle": "4.4.*",
+        "symfony/monolog-bundle": "^3.8",
         "symfony/yaml": "4.4.*"
     },
     "require-dev": {
+        "phpunit/phpunit": "^7.5",
+        "roave/security-advisories": "dev-latest",
+        "symfony/phpunit-bridge": "6.4.x-dev"
     },
     "config": {
         "allow-plugins": {

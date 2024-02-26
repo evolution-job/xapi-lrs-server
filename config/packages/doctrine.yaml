@@ -1,0 +1,20 @@
+doctrine:
+    dbal:
+        url: '%env(resolve:DATABASE_URL)%'
+
+        # IMPORTANT: You MUST configure your server version,
+        # either here or in the DATABASE_URL env var (see .env file)
+        #server_version: '16'
+        use_savepoints: true
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        quote_strategy: 'xapi_lrs.doctrine.orm.quote.strategy'
+        mappings:
+            XApiLrsBundle:
+                mapping: true
+                type: xml
+                dir: '%kernel.root_dir%/../vendor/php-xapi/repository-doctrine-orm/metadata'
+                is_bundle: false
+                prefix: XApi\Repository\Doctrine\Mapping

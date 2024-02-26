@@ -1,3 +1,3 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+xapi:
+    resource: "@XApiLrsBundle/Resources/config/routing.xml"
+    prefix:   /lrs

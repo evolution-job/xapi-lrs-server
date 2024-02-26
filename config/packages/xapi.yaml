@@ -1,0 +1,3 @@
+xapi_lrs:
+    type: orm
+    object_manager_service: doctrine.orm.entity_manager
