@@ -15,6 +15,6 @@ doctrine:
             XApiLrsBundle:
                 mapping: true
                 type: xml
-                dir: '%kernel.root_dir%/../vendor/php-xapi/repository-doctrine-orm/metadata'
+                dir: '%kernel.project_dir%/vendor/php-xapi/repository-doctrine-orm/metadata'
                 is_bundle: false
                 prefix: XApi\Repository\Doctrine\Mapping

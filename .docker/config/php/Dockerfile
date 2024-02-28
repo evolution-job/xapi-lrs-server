@@ -33,9 +33,9 @@ RUN groupadd -g 1000 webapp && \
     touch .ssh/authorized_keys && \
     chmod 600 .ssh/authorized_keys
 
-# PHP 7.1
+# PHP 8.1
 RUN amazon-linux-extras install epel
-RUN amazon-linux-extras enable php7.1
+RUN amazon-linux-extras enable php8.1
 RUN yum -y install \
     php-cli \
     php-devel \

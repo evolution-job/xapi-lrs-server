@@ -55,4 +55,4 @@ Go to <https://dev.entrili.local/> and enjoy!
 
 ## 6. Available urls
 
-- App : <https://lrs.entrili.local/>
+- App : <https://lrs.entrili.local:444/>
