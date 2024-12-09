@@ -3,7 +3,7 @@ LRS Server
 
 This implementation of Symfony bundle 'php-xapi/lrs-bundle' generate a Learning Record Store, as defined by the xAPI (or Tin Can API).
 
-The configuration guide proposed below is use **Doctrine** ORM.
+The configuration guide proposed below use **Doctrine** ORM.
 
 Docker compose build containers
 - PHP

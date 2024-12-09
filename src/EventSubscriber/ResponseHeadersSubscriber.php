@@ -13,12 +13,9 @@ class ResponseHeadersSubscriber implements EventSubscriberInterface
         return [KernelEvents::RESPONSE => 'onKernelResponse'];
     }
 
-    /**
-     * @param ResponseEvent $event
-     */
-    public function onKernelResponse(ResponseEvent $event): void
+    public function onKernelResponse(ResponseEvent $responseEvent): void
     {
-        $headers = $event->getResponse()->headers;
+        $headers = $responseEvent->getResponse()->headers;
 
         $headers->add([
             'Access-Control-Allow-Origin'  => '*',
