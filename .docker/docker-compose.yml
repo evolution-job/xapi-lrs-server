@@ -105,16 +105,13 @@ services:
         bind:
           create_host_path: true
   mysql:
-    command:
-      - --default-authentication-plugin=mysql_native_password
-    container_name: lrs_mysql
+    command: --mysql-native-password=ON
+    container_name: lrs_mysql_84
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: null
       MYSQL_DATABASE: entrili_lrs
       MYSQL_ROOT_PASSWORD: root
-    image: mysql:latest
-    networks:
-      default: null
+    image: mysql:8.4
     ports:
       - mode: ingress
         target: 3306
