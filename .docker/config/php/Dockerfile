@@ -1,4 +1,4 @@
-FROM amazonlinux:2
+FROM amazonlinux:2023
 
 LABEL maintainer="Mathieu BOLDO <mathieu.boldo@entrili.com>"
 
@@ -9,10 +9,9 @@ COPY rootCA.crt /etc/pki/ca-trust/source/anchors/rootCA.crt
 RUN update-ca-trust extract
 
 # Packages
-RUN yum -y upgrade
-RUN yum -y install \
+RUN dnf -y upgrade
+RUN dnf -y install \
     bash \
-    curl \
     gcc \
     git \
     htop \
@@ -20,7 +19,7 @@ RUN yum -y install \
     nano \
     openssh \
     tar \
-    yum-cron \
+    wget \
     zip
 
 # User webapp
@@ -33,21 +32,10 @@ RUN groupadd -g 1000 webapp && \
     touch .ssh/authorized_keys && \
     chmod 600 .ssh/authorized_keys
 
-# PHP 8.1
-RUN amazon-linux-extras install epel
-RUN amazon-linux-extras enable php8.1
-RUN yum -y install \
-    php-cli \
-    php-devel \
-    php-fpm \
-    php-gd \
-    php-intl \
-    php-mbstring \
-    php-mysqlnd \
-    php-opcache \
-    php-pdo \
-    php-posix \
-    php-xml
+# PHP 8.4
+RUN dnf -y install php-{bcmath,cli,common,dba,dbg,devel,ffi,fpm,gd,intl,mbstring,mysqlnd,opcache,pdo,pgsql,posix,sodium,tidy,xml,zip}
+
+RUN mkdir -p /run/php-fpm
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php -d allow_url_fopen=On
@@ -63,7 +51,7 @@ USER root
 
 # SYMFONY
 RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.rpm.sh' | bash
-RUN yum -y install symfony-cli
+RUN dnf -y install symfony-cli
 
 # Composer
 RUN curl \
@@ -94,10 +82,14 @@ RUN chown -R webapp:webapp /var/www
 RUN set -eux \
     && find "$(php-config --extension-dir)" -name '*.so' -type f -exec strip --strip-all {} \;
 
+# Avoid deprecation message from php.ini config
+RUN sed -i 's/session.sid_length/;session.sid_length/g' /etc/php.ini
+RUN sed -i 's/session.sid_bits_per_character/;session.sid_bits_per_character/g' /etc/php.ini
+
 # Clear memory
-RUN yum -y erase gcc make php-devel
-RUN yum clean all
-RUN rm -rf /var/cache/yum
+RUN dnf -y erase gcc make php-devel
+RUN dnf clean all
+RUN rm -rf /var/cache/dnf
 
 # Startup script
 ADD init.sh /var/init.sh

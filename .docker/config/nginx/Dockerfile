@@ -1,4 +1,4 @@
-FROM alpine:3.13
+FROM node:lts-alpine
 
 LABEL maintainer="Mathieu BOLDO <mathieu.boldo@entrili.com>"
 
